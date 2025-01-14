@@ -1,12 +1,9 @@
-import { UNSPLASH_API_KEY, API_ENDPOINT } from './constants.js';
-import { getCollections, populateCollections } from './collections.js';
-import { populatePhotos } from './photos.js';
-
-console.log(UNSPLASH_API_KEY);
-console.log(API_ENDPOINT);
-console.log(await getCollections());
+import { populateCollections } from './collections.js';
+import makeSearchRequest, { populatePhotos } from './photos.js';
 
 (async () => {
   await populateCollections();
+  await populatePhotos();
   window.populatePhotos = populatePhotos;
+  window.makeSearchRequest = makeSearchRequest;
 })();
